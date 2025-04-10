@@ -1,0 +1,26 @@
+{
+  "name": "airline-management-app",
+  "version": "1.0.0",
+  "description": "Full-stack Airline Management Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd frontend/backend && npm run dev",
+    "frontend": "cd frontend/quasar-project && npm run dev",
+    "install-all": "npm install && cd frontend/backend && npm install && cd ../quasar-project && npm install",
+    "seed": "cd frontend/backend && node seeders/seed.js"
+  },
+  "keywords": [
+    "airline",
+    "management",
+    "nodejs",
+    "vue",
+    "quasar",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
