@@ -26,7 +26,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:9000', 'http://localhost:8080'], // Allow Quasar dev server
+  origin: ['http://localhost:9000', 'http://localhost:8080', 'http://localhost:9001'], // Allow Quasar dev server
   credentials: true
 }));
 app.use(express.json());
@@ -45,9 +45,14 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/profiles', profileRoutes);
 
-// Root route
+// Root routes
 app.get('/', (req, res) => {
   res.send('Airline Management API is running');
+});
+
+// API root route for health checks
+app.get('/api', (req, res) => {
+  res.json({ status: 'success', message: 'API is running' });
 });
 
 // 404 handler
